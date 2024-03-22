@@ -30,11 +30,11 @@ const handleMessage = (message) => {
     const chatMessagesContainer = document.querySelector("#chat-messages");
     const divMessage = document.createElement('div')
     divMessage.classList.add('chat-message')
-    const labelAuthor = document.createElement('label')
-    labelAuthor.innerText = message.sender_name
+    const authorSpan = document.createElement('span')
+    authorSpan.innerText = message.sender_name
     const paragraphMessage = document.createElement('p')
-    paragraphMessage.innerText = message.message
-    divMessage.appendChild(labelAuthor)
+    paragraphMessage.appendChild(authorSpan)
+    paragraphMessage.innerHTML += message.message
     divMessage.appendChild(paragraphMessage)
     chatMessagesContainer.appendChild(divMessage)
 }
