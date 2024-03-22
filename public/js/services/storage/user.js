@@ -42,6 +42,7 @@ const clearLabel = () => {
 
 export {
     checkUserOnLocalStorage,
+    getUser,
     setUser,
     clearUser,
     userStorageBootstrap,

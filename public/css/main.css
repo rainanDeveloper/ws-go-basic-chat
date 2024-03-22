@@ -88,14 +88,20 @@ button.danger {
 
 .chat-container .chat-messages {
     display: flex;
+    flex-direction: column;
     flex-basis: 800px;
-    background-color: #ccc;
+    background-color: #dce9ee;
     border-radius: 8px;
+    font-size: 0.9em;
+    gap: 5px;
+    padding: 10px 5px;
 }
-
 
 .chat-inputs {
     width: 100%;
+}
+
+.chat-inputs form {
     display: grid;
     grid-template-columns: 1fr 120px;
     grid-gap: 10px;
@@ -104,4 +110,18 @@ button.danger {
 
 .chat-inputs textarea {
     resize: none;
+}
+
+.chat-container .chat-messages .chat-event {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.chat-container .chat-messages .chat-event p {
+    padding: 5px 8px;
+    margin: 0;
+    border-radius: 5px;
+    color: white;
+    background-color: #26C485;
 }

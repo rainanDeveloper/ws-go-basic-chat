@@ -2,13 +2,41 @@ const WS_URL = "ws://localhost:8080/ws"
 
 const openWSConnection = () => {
     window.ws = new WebSocket(WS_URL)
-    window.ws.onmessage = ((event) => {
-        const data = JSON.parse(event.data)
+    window.ws.onmessage = (onWSMessageReceiving)
+}
 
-        if(data.event_name) {
-            console.log(`${data.message}`)
-        }
-    })
+const onWSMessageReceiving = (event) => {
+    const data = JSON.parse(event.data)
+    
+    if(data.event_name) {
+        handleEvent(data)
+        return
+    }
+    
+    handleMessage(data)
+}
+
+const handleEvent = (event) => {
+    const chatMessagesContainer = document.querySelector("#chat-messages");
+    const divNewEvent = document.createElement('div')
+    divNewEvent.classList.add("chat-event")
+    const paragraphNewEvent = document.createElement('p')
+    paragraphNewEvent.innerText = event.message
+    divNewEvent.appendChild(paragraphNewEvent)
+    chatMessagesContainer.appendChild(divNewEvent)
+}
+
+const handleMessage = (message) => {
+    const chatMessagesContainer = document.querySelector("#chat-messages");
+    const divMessage = document.createElement('div')
+    divMessage.classList.add('chat-message')
+    const labelAuthor = document.createElement('label')
+    labelAuthor.innerText = message.sender_name
+    const paragraphMessage = document.createElement('p')
+    paragraphMessage.innerText = message.message
+    divMessage.appendChild(labelAuthor)
+    divMessage.appendChild(paragraphMessage)
+    chatMessagesContainer.appendChild(divMessage)
 }
 
 const closeWSConnection = () => {

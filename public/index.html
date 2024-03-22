@@ -15,12 +15,14 @@
             <label id="chat-user-name-label"></label>
             <button class="danger" id="logout-button">Logout</button>
         </div>
-        <div class="chat-messages">
+        <div class="chat-messages" id="chat-messages">
 
         </div>
         <div class="chat-inputs">
-            <textarea placeholder="Type a message..."></textarea>
-            <button>Send</button>
+            <form id="message-form">
+                <textarea id="message-textarea-input" placeholder="Type a message..."></textarea>
+                <button>Send</button>
+            </form>
         </div>
     </div>
 
