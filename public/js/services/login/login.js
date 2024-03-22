@@ -1,8 +1,10 @@
 import { checkUserOnLocalStorage, clearUser, setUser } from "../storage/user.js"
+import { closeWSConnection, openWSConnection } from "../websocket/websocket.js";
 
 const checkIfLoginIsNeededAndLoadLogin = () => {
     if(checkUserOnLocalStorage()) {
         hideLoginForm()
+        openWSConnection()
         return;
     }
 
@@ -22,11 +24,13 @@ const hideLoginForm = () => {
 const loginUser = (user) => {
     setUser(user)
     hideLoginForm()
+    openWSConnection()
 }
 
 const logout = () => {
     clearUser()
     showLoginForm()
+    closeWSConnection()
 }
 
 const setupLoginForm = () => {
