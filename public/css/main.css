@@ -1,0 +1,60 @@
+html, body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 460px;
+    gap: 8px;
+}
+
+.chat-container .chat-messages {
+    display: flex;
+    flex-basis: 800px;
+    background-color: #ccc;
+    border-radius: 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 8px;
+}
+
+
+/* ---------------------- Login section ---------------------- */
+
+.login-container {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    top: 0;
+    left: 0;
+    background-color: #6668;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-container .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login-container .login-form input, .login-container .login-form button {
+    font-size: 1rem;
+}
