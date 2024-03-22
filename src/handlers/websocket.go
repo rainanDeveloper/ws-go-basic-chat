@@ -21,12 +21,13 @@ func WsHandler(writer http.ResponseWriter, request *http.Request) {
 
 	clients[ws] = true
 	broadcastClientConnected(request.Context())
+	log.Printf("Cliente conectado: %v\n", &ws)
 
 	for {
 		_, data, err := ws.Read(request.Context())
 
 		if(err != nil) {
-			log.Println("Encerrando conexão do cliente")
+			log.Printf("Encerrando conexão do cliente: %v\n", &ws)
 			delete(clients, ws)
 			break
 		}
@@ -45,9 +46,17 @@ func WsHandler(writer http.ResponseWriter, request *http.Request) {
 func broadcastClientConnected(ctx context.Context) {
 	var clientConnectedEvent Event = Event{
 		EventName: "CLIENT_CONNECTED",
-		Message: "New client connected",
+		Message: "Someone joined the chat",
 	}
 	broadcastData(ctx, clientConnectedEvent.ToJSON())
+}
+
+func broadcastClientDisconnected(ctx context.Context) {
+	var clientDisconnectedEvent Event = Event{
+		EventName: "CLIENT_DISCONNECTED",
+		Message: "Someone left the chat",
+	}
+	broadcastData(ctx, clientDisconnectedEvent.ToJSON())
 }
 
 func broadcastData(ctx context.Context, data string) {

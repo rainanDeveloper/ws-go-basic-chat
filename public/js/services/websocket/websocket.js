@@ -1,4 +1,8 @@
-const WS_URL = "ws://localhost:8080/ws"
+let WS_URL = `ws://${window.location.host}/ws`
+
+if(window.location.protocol=='https:'){
+    WS_URL = `wss://${window.location.host}/ws`
+}
 
 const openWSConnection = () => {
     window.ws = new WebSocket(WS_URL)
