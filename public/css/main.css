@@ -1,3 +1,5 @@
+/* ----------------------- General --------------------------- */
+
 html, body {
     display: flex;
     justify-content: center;
@@ -15,26 +17,11 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 460px;
-    gap: 8px;
-}
-
-.chat-container .chat-messages {
-    display: flex;
-    flex-basis: 800px;
-    background-color: #ccc;
-    border-radius: 8px;
-}
-
 h1, h2, h3, h4, h5, h6 {
     margin: 8px;
 }
 
-input {
+input, textarea {
     padding: 8px 10px;
     border-radius: 5px;
     border: solid 1px #cecece;
@@ -53,6 +40,10 @@ button {
 
 button.confirm {
     background-color: #26C485;
+}
+
+button.danger {
+    background-color: #F71735;
 }
 
 /* ---------------------- Login section ---------------------- */
@@ -77,4 +68,40 @@ button.confirm {
 
 .login-container .login-form input, .login-container .login-form button {
     font-size: 1rem;
+}
+
+/* --------------------- Chat and messages ------------------- */
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 460px;
+    gap: 8px;
+}
+
+.chat-container .chat-user-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} 
+
+.chat-container .chat-messages {
+    display: flex;
+    flex-basis: 800px;
+    background-color: #ccc;
+    border-radius: 8px;
+}
+
+
+.chat-inputs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    grid-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.chat-inputs textarea {
+    resize: none;
 }
