@@ -6,6 +6,7 @@
     <title>Chit-Chat app</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="./js/main.js"></script>
 </head>
 <body>
     <div class="chat-container">
@@ -24,9 +25,9 @@
 
     <div class="login-container" id="login-container">
         <form class="login-form" id="login-form">
-            <input type="text" id="login-input" placeholder="login">
+            <input type="text" required id="login-input" placeholder="login">
 
-            <button id="login-button">Login</button>
+            <button id="login-button" class="confirm">Login</button>
         </form>
     </div>
 </body>

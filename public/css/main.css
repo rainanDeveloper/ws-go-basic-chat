@@ -34,6 +34,26 @@ h1, h2, h3, h4, h5, h6 {
     margin: 8px;
 }
 
+input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: solid 1px #cecece;
+    background-color: #fff;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px 10px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #00A6ED;
+}
+
+button.confirm {
+    background-color: #26C485;
+}
 
 /* ---------------------- Login section ---------------------- */
 
@@ -41,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: none;
     top: 0;
     left: 0;
     background-color: #6668;
